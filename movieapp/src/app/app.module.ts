@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MyMoviesComponent } from './my-movies/my-movies.component';
+import { RegisterService } from './register.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { MyMoviesComponent } from './my-movies/my-movies.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
