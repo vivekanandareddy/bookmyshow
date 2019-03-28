@@ -15,10 +15,16 @@ export class LoginComponent implements OnInit {
 
   loginUser()
   {
-    if(this._loginserv.loginUser(this.loginUserData) == 0)
+    
+    this._loginserv.loginUser(this.loginUserData)
+    .subscribe(
+      res=>console.log(res),
+      err=>console.log(err)
+    )
+    /*if(this._loginserv.loginUser(this.loginUserData) == 0)
     { console.log('User Logged In');}
     else
-    { console.log('Wrong Username or Password');}
+    { console.log('Wrong Username or Password');}*/
   }
 
 }
