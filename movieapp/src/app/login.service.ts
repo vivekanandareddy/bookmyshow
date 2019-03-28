@@ -13,7 +13,7 @@ export class LoginService {
 
 
 
-    let username = localStorage.getItem('email');
+    /*let username = localStorage.getItem('email');
     let password = localStorage.getItem('password');
 
     if((user.email==username) && (user.password==password))
