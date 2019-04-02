@@ -10,6 +10,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MyMoviesComponent } from './my-movies/my-movies.component';
 import { RegisterService } from './register.service';
 import { LoginService } from './login.service';
+import { MoviesService} from './movies.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { LoginService } from './login.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [RegisterService,LoginService],
+  providers: [RegisterService,LoginService,MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
