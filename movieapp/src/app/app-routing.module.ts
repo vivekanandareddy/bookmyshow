@@ -4,6 +4,8 @@ import { MoviesComponent } from './movies/movies.component';
 import { MyMoviesComponent } from './my-movies/my-movies.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { CanActivate } from '@angular/router/src/utils/preactivation';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'mymovies',
-    component: MyMoviesComponent
+    component: MyMoviesComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',

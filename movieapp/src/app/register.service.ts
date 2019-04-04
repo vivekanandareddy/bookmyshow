@@ -35,7 +35,11 @@ export class RegisterService {
 
     console.log(JSON.parse(localStorage.getItem('usernames'))); */
     
-    
+  }
+  
+  loggedIn()
+  {
+    return !!localStorage.getItem('token')
   }
 
 }

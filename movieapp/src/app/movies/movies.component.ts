@@ -8,7 +8,7 @@ import { MoviesService } from '../movies.service';
 })
 export class MoviesComponent implements OnInit {
 
-  happy="Happy";
+  
   movies = [];
   constructor(private _moviesService: MoviesService) { }
 

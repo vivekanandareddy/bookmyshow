@@ -11,6 +11,7 @@ import { MyMoviesComponent } from './my-movies/my-movies.component';
 import { RegisterService } from './register.service';
 import { LoginService } from './login.service';
 import { MoviesService} from './movies.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { MoviesService} from './movies.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [RegisterService,LoginService,MoviesService],
+  providers: [RegisterService,LoginService,MoviesService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

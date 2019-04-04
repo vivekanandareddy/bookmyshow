@@ -25,4 +25,7 @@ export class LoginService {
     }
     */
   }
+  loggedIn() {
+    return !!localStorage.getItem('token')
+  }
 }
