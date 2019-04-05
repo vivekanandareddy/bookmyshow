@@ -64,7 +64,7 @@ router.post('/login',(req,res)=>{
 router.get('/movies',(req,res)=>{
     let movies=[]
     let movie = new Movies()
-    movie.findMany((err,fetchedmovies)=>{
+    movie.find((err,fetchedmovies)=>{
         movies = fetchedmovies
     })
 
