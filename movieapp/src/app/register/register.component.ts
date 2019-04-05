@@ -23,7 +23,6 @@ export class RegisterComponent implements OnInit {
         localStorage.setItem('token',res.token)
         this.router.navigate(['/mymovies'])
         console.log(res)
-        
       },
       err=>console.log(err)
     )

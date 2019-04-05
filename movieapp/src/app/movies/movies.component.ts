@@ -10,6 +10,7 @@ export class MoviesComponent implements OnInit {
 
   
   movies = [];
+
   constructor(private _moviesService: MoviesService) { }
 
   ngOnInit() {
@@ -18,5 +19,8 @@ export class MoviesComponent implements OnInit {
         res => this.movies=res,
         err => console.log(err)
       )
+
+      
   }
+  
 }
