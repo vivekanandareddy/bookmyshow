@@ -9,8 +9,9 @@
       </div>
       <div class="col-md-6">
         <ul class="rightNav">
-          <li class="navele"><a routerLink="/login" routerLinkActive="active">Login</a></li>
-          <li class="navele"><a routerLink="/register" routerLinkActive="active">Sign Up / Register</a></li>
+          <li class="navele"><a *ngIf="!_loginservice.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a></li>
+          <li class="navele"><a *ngIf="!_loginservice.loggedIn()" routerLink="/register" routerLinkActive="active">Sign Up / Register</a></li>
+          <li><a style="cursor:pointer" *ngIf="_loginservice.loggedIn()" (click)="_loginservice.logoutuser()">Logout</a></li>
         </ul>
       </div>
   </div>

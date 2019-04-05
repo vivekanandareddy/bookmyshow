@@ -12,6 +12,25 @@ mongoose.connect(db, err=>{
     else{ console.log('Mongodb Connected to user db')}
 })
 
+function verifyToken(req,res,next){
+    if(!req.headers.authorization)
+    {
+        return res.status(401).send('unauthorized request')
+    }
+    let token = req.headers.authorization.split(' ')[1]
+    if(token === 'null')
+    {
+        return res.status(401).send('unauthorized request')
+    }
+    let payload = jwt.verify(token,'secretkey')
+    if(!payload)
+    {
+        return res.status(401).send('unauthorized request')
+    }
+    req.userId = payload.subject
+    next()
+}
+
 router.get('/',(req,res)=>{
     res.send('From Api')
 })
@@ -90,7 +109,7 @@ router.get('/movies',(req,res)=>{
     res.json(movies)
 })
 
-router.get('/mymovies', (req, res) => {
+router.get('/mymovies',verifyToken, (req, res) => {
     let movies = [
         {
             "id": "1",
