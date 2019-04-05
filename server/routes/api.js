@@ -50,7 +50,6 @@ router.post('/login',(req,res)=>{
                         res.status(401).send('Invalid Password')   
                     }
                     else{
-                        
                         let payload= {subject : user.id}
                         let token = jwt.sign(payload,'secretkey')
                         res.status(200).send({token})
