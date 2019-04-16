@@ -3,14 +3,16 @@ const jwt = require('jsonwebtoken')
 const router = express.Router()
 const User = require('../models/user')
 
-
 const mongoose = require('mongoose')
+
 const db ="mongodb+srv://vivek:vivek@cluster1-zfbnm.mongodb.net/users?retryWrites=true"
 
 mongoose.connect(db, err=>{
     if(err){ console.error(err)}
-    else{ console.log('Mongodb Connected to user db')}
+    else{ console.log('Mongodb Connected to users db')}
 })
+
+
 
 function verifyToken(req,res,next){
     if(!req.headers.authorization)
@@ -76,6 +78,7 @@ router.post('/login',(req,res)=>{
     })
 })
 
+
 router.get('/movies',(req,res)=>{
     let movies = [
         {
@@ -104,10 +107,8 @@ router.get('/movies',(req,res)=>{
             "description": "Allu Arjun's Entertaining Hit Movie"
         }
     ]
-    
-
-    res.json(movies)
-})
+    res.status(200).json(movies)
+})  
 
 router.get('/mymovies',verifyToken, (req, res) => {
     let movies = [
@@ -137,6 +138,7 @@ router.get('/mymovies',verifyToken, (req, res) => {
             "description": "Allu Arjun's Entertaining Hit Movie"
         }
     ]
+
     res.json(movies)
 })
 
